@@ -16,5 +16,4 @@
 /tmp
 
 # Ignore yml files
-dropbox.yml
 database.yml
