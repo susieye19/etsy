@@ -1,0 +1,18 @@
+<h1>Sales</h1>
+<table>
+	<tr>
+		<th>Image</th>
+		<th>Name</th>
+		<th>Buyer</th>
+		<th>Seller</th>
+	</tr>
+
+	<% @orders.each do |order| %>
+		<tr>
+			<td><%= image_tag order.listing.image.url(:thumb) %></td>
+			<td><%= order.listing.name %></td>
+			<td><%= order.buyer.name %></td>
+			<td><%= order.seller.name %></td>
+		</tr>
+	<% end %>
+</table>

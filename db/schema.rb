@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216055222) do
+ActiveRecord::Schema.define(version: 20140107091429) do
 
   create_table "listings", force: true do |t|
     t.string   "name"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20131216055222) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "delivery_address"
+    t.string   "delivery_city"
+    t.string   "delivery_state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "listing_id"
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
   end
 
   create_table "users", force: true do |t|
@@ -40,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131216055222) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

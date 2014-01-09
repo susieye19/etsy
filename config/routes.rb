@@ -1,9 +1,14 @@
 Etsy::Application.routes.draw do
+
   devise_for :users
-  resources :listings
+  resources :listings do
+    resources :orders
+  end
 
   get 'about' => "pages#about"
   get 'seller' => "listings#seller"
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
   root 'listings#index'
 
   

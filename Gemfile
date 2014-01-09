@@ -14,6 +14,8 @@ gem 'jquery-turbolinks'
 gem 'masonry-rails'
 gem 'devise'
 gem 'paperclip-dropbox', ">= 1.1.7"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 
 group :production do
 	gem 'rails_12factor'
