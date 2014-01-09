@@ -56,15 +56,17 @@ class OrdersController < ApplicationController
       flash[:danger] = e.message
     end
 
-    # Transfer funds
-    begin
-      transfer = Stripe::Transfer.create(
-        amount: (100 * @order.listing.price).to_i,
-        currency: "usd",
-        recipient: @listing.user.token,
-      )
-    rescue Stripe::CardError => e
-      flash[:danger] = e.message
+    if false
+      # Transfer funds
+      begin
+        transfer = Stripe::Transfer.create(
+          amount: (100 * @order.listing.price).to_i,
+          currency: "usd",
+          recipient: @listing.user.token,
+        )
+      rescue Stripe::CardError => e
+        flash[:danger] = e.message
+      end
     end    
 
     respond_to do |format|
